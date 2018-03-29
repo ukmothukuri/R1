@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Jan, 2018 10:27:00 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.real.pojo.Grouppricing" table="grouppricing" catalog="real_db">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="groupmaster" class="com.real.pojo.Groupmaster" fetch="select">
+            <column name="GroupID" not-null="true" />
+        </many-to-one>
+        <property name="scheme" type="string">
+            <column name="Scheme" />
+        </property>
+        <property name="schemeStartDate" type="timestamp">
+            <column name="SchemeStartDate" length="19" />
+        </property>
+        <property name="schemeEndDate" type="timestamp">
+            <column name="SchemeEndDate" length="19" />
+        </property>
+        <property name="ratePerUnit" type="java.lang.Integer">
+            <column name="RatePerUnit" />
+        </property>
+        <property name="period" type="java.lang.Integer">
+            <column name="Period" />
+        </property>
+        <property name="initialAmount" type="java.lang.Integer">
+            <column name="InitialAmount" />
+        </property>
+        <property name="initialPercentOrAmount" type="string">
+            <column name="InitialPercentOrAmount" />
+        </property>
+        <property name="reservationAmount" type="java.lang.Integer">
+            <column name="ReservationAmount" />
+        </property>
+        <property name="reservationPercentOrAmount" type="string">
+            <column name="ReservationPercentOrAmount" />
+        </property>
+        <property name="emi" type="java.lang.Integer">
+            <column name="EMI" />
+        </property>
+        <property name="specialInstlmentGap" type="java.lang.Integer">
+            <column name="SpecialInstlmentGap" />
+        </property>
+        <property name="specialInstalmentAmount" type="java.lang.Integer">
+            <column name="SpecialInstalmentAmount" />
+        </property>
+        <property name="lastAmount" type="java.lang.Integer">
+            <column name="LastAmount" />
+        </property>
+        <property name="totalCost" type="java.lang.Integer">
+            <column name="TotalCost" />
+        </property>
+        <property name="temp1" type="java.lang.Integer">
+            <column name="Temp1" />
+        </property>
+        <property name="temp2" type="java.lang.Integer">
+            <column name="Temp2" />
+        </property>
+        <property name="temp3" type="java.lang.Integer">
+            <column name="Temp3" />
+        </property>
+        <property name="temp4" type="java.lang.Integer">
+            <column name="Temp4" />
+        </property>
+        <property name="temp5" type="java.lang.Integer">
+            <column name="Temp5" />
+        </property>
+    </class>
+</hibernate-mapping>

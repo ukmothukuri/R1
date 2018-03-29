@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Jan, 2018 10:27:00 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.real.pojo.Groupmaster" table="groupmaster" catalog="real_db">
+        <id name="groupId" type="java.lang.Integer">
+            <column name="GroupID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="companymaster" class="com.real.pojo.Companymaster" fetch="select">
+            <column name="CompanyID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="businesstypes" class="com.real.pojo.Businesstypes" fetch="select">
+            <column name="ProjectTypeID" />
+        </many-to-one>
+        <many-to-one name="branchmaster" class="com.real.pojo.Branchmaster" fetch="select">
+            <column name="BranchID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="areaunits" class="com.real.pojo.Areaunits" fetch="select">
+            <column name="AreaUnitCode" not-null="true" />
+        </many-to-one>
+        <property name="groupCode" type="string">
+            <column name="GroupCode" length="10" not-null="true" />
+        </property>
+        <property name="groupName" type="string">
+            <column name="GroupName" length="50" />
+        </property>
+        <property name="groupStartDate" type="timestamp">
+            <column name="GroupStartDate" length="19" />
+        </property>
+        <property name="groupEndDate" type="string">
+            <column name="GroupEndDate" />
+        </property>
+        <property name="area" type="java.lang.Double">
+            <column name="Area" precision="22" scale="0" />
+        </property>
+        <property name="purchaseAreaUnits" type="string">
+            <column name="PurchaseAreaUnits" length="50" />
+        </property>
+        <property name="commissionMethod" type="string">
+            <column name="CommissionMethod" />
+        </property>
+        <property name="admissionAmount" type="java.lang.Integer">
+            <column name="AdmissionAmount" />
+        </property>
+        <property name="securityTag" type="string">
+            <column name="SecurityTag" length="1" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+        <property name="modifiedId" type="string">
+            <column name="ModifiedID" length="10" />
+        </property>
+        <property name="entryBranchCode" type="string">
+            <column name="EntryBranchCode" length="4" />
+        </property>
+        <property name="entryDate" type="timestamp">
+            <column name="EntryDate" length="19" />
+        </property>
+        <property name="enteredId" type="string">
+            <column name="EnteredID" length="10" />
+        </property>
+        <set name="groupextrapricings" table="groupextrapricing" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GroupID" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Groupextrapricing" />
+        </set>
+        <set name="groupinstallmentses" table="groupinstallments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GroupID" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Groupinstallments" />
+        </set>
+        <set name="grouppricings" table="grouppricing" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GroupID" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Grouppricing" />
+        </set>
+    </class>
+</hibernate-mapping>

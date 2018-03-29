@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Jan, 2018 10:27:00 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.real.pojo.Userdetails" table="userdetails" catalog="real_db">
+        <id name="sno" type="java.lang.Integer">
+            <column name="sno" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usermaster" class="com.real.pojo.Usermaster" fetch="select">
+            <column name="UserID" length="15" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rolemaster" class="com.real.pojo.Rolemaster" fetch="select">
+            <column name="roleID" not-null="true" />
+        </many-to-one>
+        <property name="password" type="string">
+            <column name="password" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

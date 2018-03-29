@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Jan, 2018 10:27:00 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.real.pojo.Usermaster" table="usermaster" catalog="real_db">
+        <id name="userId" type="string">
+            <column name="UserID" length="15" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="branchmaster" class="com.real.pojo.Branchmaster" fetch="select">
+            <column name="BranchID" />
+        </many-to-one>
+        <property name="companyId" type="int">
+            <column name="CompanyID" not-null="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="UserName" length="50" />
+        </property>
+        <property name="userRoles" type="int">
+            <column name="UserRoles" />
+        </property>
+        <property name="userPhoto" type="binary">
+            <column name="UserPhoto" />
+        </property>
+        <property name="userFinger" type="binary">
+            <column name="UserFinger" />
+        </property>
+        <property name="userIris" type="binary">
+            <column name="UserIris" />
+        </property>
+        <property name="idproof" type="binary">
+            <column name="IDProof" />
+        </property>
+        <property name="aadharNo" type="string">
+            <column name="AadharNo" />
+        </property>
+        <property name="idcareNo" type="string">
+            <column name="IDCareNo" length="50" />
+        </property>
+        <property name="bloodGroup" type="string">
+            <column name="BloodGroup" length="50" />
+        </property>
+        <property name="phoneResidence" type="string">
+            <column name="PhoneResidence" length="50" />
+        </property>
+        <property name="phoneMobile" type="string">
+            <column name="PhoneMobile" length="50" />
+        </property>
+        <property name="emergency" type="string">
+            <column name="Emergency" length="50" />
+        </property>
+        <property name="dateJoin" type="timestamp">
+            <column name="DateJoin" length="19" />
+        </property>
+        <property name="joinCadre" type="string">
+            <column name="JoinCadre" length="50" />
+        </property>
+        <property name="presentCadre" type="string">
+            <column name="PresentCadre" length="50" />
+        </property>
+        <property name="address1" type="string">
+            <column name="Address1" length="50" />
+        </property>
+        <property name="address2" type="string">
+            <column name="Address2" length="50" />
+        </property>
+        <property name="address3" type="string">
+            <column name="Address3" length="50" />
+        </property>
+        <property name="address4" type="string">
+            <column name="Address4" length="50" />
+        </property>
+        <property name="address5" type="string">
+            <column name="Address5" length="50" />
+        </property>
+        <property name="applicationScanImage" type="binary">
+            <column name="ApplicationScanImage" />
+        </property>
+        <property name="status" type="string">
+            <column name="Status" length="1" />
+        </property>
+        <property name="userValue" type="java.lang.Byte">
+            <column name="UserValue" />
+        </property>
+        <property name="fileValue" type="java.lang.Byte">
+            <column name="FileValue" />
+        </property>
+        <property name="valutionDate" type="timestamp">
+            <column name="ValutionDate" length="19" />
+        </property>
+        <property name="userPreferences" type="string">
+            <column name="UserPreferences" length="50" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="Remarks" length="50" />
+        </property>
+        <property name="securityTag" type="string">
+            <column name="SecurityTag" length="1" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+        <property name="modifiedId" type="string">
+            <column name="ModifiedID" length="10" />
+        </property>
+        <property name="entryBranchCode" type="string">
+            <column name="EntryBranchCode" length="4" />
+        </property>
+        <property name="entryDate" type="timestamp">
+            <column name="EntryDate" length="19" />
+        </property>
+        <property name="enteredId" type="string">
+            <column name="EnteredID" length="10" />
+        </property>
+        <set name="userdetailses" table="userdetails" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="UserID" length="15" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Userdetails" />
+        </set>
+    </class>
+</hibernate-mapping>

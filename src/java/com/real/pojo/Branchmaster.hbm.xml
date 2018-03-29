@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Jan, 2018 10:27:00 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.real.pojo.Branchmaster" table="branchmaster" catalog="real_db">
+        <id name="branchId" type="java.lang.Integer">
+            <column name="BranchID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="companymaster" class="com.real.pojo.Companymaster" fetch="select">
+            <column name="CompanyID" not-null="true" />
+        </many-to-one>
+        <property name="branchCode" type="string">
+            <column name="BranchCode" length="10" not-null="true" />
+        </property>
+        <property name="branchName" type="string">
+            <column name="BranchName" length="50" />
+        </property>
+        <property name="regionBranch" type="string">
+            <column name="RegionBranch" length="10" />
+        </property>
+        <property name="address" type="string">
+            <column name="Address" length="120" />
+        </property>
+        <property name="tan" type="string">
+            <column name="TAN" />
+        </property>
+        <property name="branchHead" type="string">
+            <column name="BranchHead" length="50" />
+        </property>
+        <property name="branchHeadUserId" type="string">
+            <column name="BranchHeadUserID" />
+        </property>
+        <property name="branchSingnatory" type="string">
+            <column name="BranchSingnatory" length="50" />
+        </property>
+        <property name="branchInfoEmailIds" type="string">
+            <column name="BranchInfoEmailIDs" />
+        </property>
+        <property name="branchWebsiteUrl" type="string">
+            <column name="BranchWebsiteURL" />
+        </property>
+        <property name="packageStartDate" type="timestamp">
+            <column name="PackageStartDate" length="19" />
+        </property>
+        <property name="packageTrialDate" type="timestamp">
+            <column name="PackageTrialDate" length="19" />
+        </property>
+        <property name="packageEndDate" type="timestamp">
+            <column name="PackageEndDate" length="19" />
+        </property>
+        <property name="branchStartDate" type="timestamp">
+            <column name="BranchStartDate" length="19" />
+        </property>
+        <property name="branchEndDate" type="timestamp">
+            <column name="BranchEndDate" length="19" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMail" length="50" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="Status" />
+        </property>
+        <property name="statusDate" type="timestamp">
+            <column name="StatusDate" length="19" />
+        </property>
+        <property name="application" type="string">
+            <column name="Application" length="20" />
+        </property>
+        <property name="applicationPath" type="string">
+            <column name="ApplicationPath" length="50" />
+        </property>
+        <property name="fullPath" type="string">
+            <column name="FullPath" length="50" />
+        </property>
+        <property name="branchPreferences" type="string">
+            <column name="BranchPreferences" length="50" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="Remarks" length="50" />
+        </property>
+        <property name="securityTag" type="string">
+            <column name="SecurityTag" length="1" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+        <property name="modifiedId" type="string">
+            <column name="ModifiedID" length="10" />
+        </property>
+        <property name="entryBranchCode" type="string">
+            <column name="EntryBranchCode" length="4" />
+        </property>
+        <property name="entryDate" type="timestamp">
+            <column name="EntryDate" length="19" />
+        </property>
+        <property name="enteredId" type="string">
+            <column name="EnteredID" length="10" />
+        </property>
+        <set name="groupmasters" table="groupmaster" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BranchID" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Groupmaster" />
+        </set>
+        <set name="usermasters" table="usermaster" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BranchID" />
+            </key>
+            <one-to-many class="com.real.pojo.Usermaster" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="real_db"/>
+  <table-filter match-name="companymaster"/>
+  <table-filter match-name="groupextrapricing"/>
+  <table-filter match-name="userdetails"/>
+  <table-filter match-name="grouppricing"/>
+  <table-filter match-name="branchmaster"/>
+  <table-filter match-name="areaunits"/>
+  <table-filter match-name="usermaster"/>
+  <table-filter match-name="groupinstallments"/>
+  <table-filter match-name="groupmaster"/>
+  <table-filter match-name="extrapricingitems"/>
+  <table-filter match-name="businesstypes"/>
+  <table-filter match-name="rolemaster"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Jan, 2018 10:27:00 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.real.pojo.Areaunits" table="areaunits" catalog="real_db">
+        <id name="areaUnitCode" type="java.lang.Integer">
+            <column name="AreaUnitCode" />
+            <generator class="identity" />
+        </id>
+        <property name="plotOrLand" type="string">
+            <column name="PlotOrLand" not-null="true" />
+        </property>
+        <property name="measurementUnit" type="string">
+            <column name="MeasurementUnit" length="50" not-null="true" />
+        </property>
+        <property name="areaMeasureemntForDecimal" type="java.lang.Integer">
+            <column name="AreaMeasureemntForDecimal" />
+        </property>
+        <property name="securityTag" type="string">
+            <column name="SecurityTag" length="1" />
+        </property>
+        <property name="modifiedDate" type="timestamp">
+            <column name="ModifiedDate" length="19" />
+        </property>
+        <property name="modifiedId" type="string">
+            <column name="ModifiedID" length="10" />
+        </property>
+        <property name="entryBranchCode" type="string">
+            <column name="EntryBranchCode" length="4" />
+        </property>
+        <property name="entryDate" type="timestamp">
+            <column name="EntryDate" length="19" />
+        </property>
+        <property name="enteredId" type="string">
+            <column name="EnteredID" length="10" />
+        </property>
+        <set name="groupmasters" table="groupmaster" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="AreaUnitCode" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Groupmaster" />
+        </set>
+    </class>
+</hibernate-mapping>

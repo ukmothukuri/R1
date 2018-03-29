@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Jan, 2018 10:27:00 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.real.pojo.Companymaster" table="companymaster" catalog="real_db">
+        <id name="companyId" type="java.lang.Integer">
+            <column name="CompanyID" />
+            <generator class="identity" />
+        </id>
+        <property name="companyCode" type="string">
+            <column name="CompanyCode" length="10" not-null="true" />
+        </property>
+        <property name="companyName" type="string">
+            <column name="CompanyName" length="50" />
+        </property>
+        <property name="companyShortName" type="string">
+            <column name="CompanyShortName" />
+        </property>
+        <property name="corporateOfficeStation" type="string">
+            <column name="CorporateOfficeStation" length="50" />
+        </property>
+        <property name="corporateOfficeAddress" type="string">
+            <column name="CorporateOfficeAddress" />
+        </property>
+        <property name="registeredOfficeStation" type="string">
+            <column name="RegisteredOfficeStation" length="50" />
+        </property>
+        <property name="registeredOfficeAddress" type="string">
+            <column name="RegisteredOfficeAddress" />
+        </property>
+        <property name="companyNameLogo" type="string">
+            <column name="CompanyNameLogo" />
+        </property>
+        <property name="companyLogo" type="string">
+            <column name="CompanyLogo" />
+        </property>
+        <property name="officialEmailId" type="string">
+            <column name="OfficialEmailID" />
+        </property>
+        <property name="companyStartDate" type="timestamp">
+            <column name="CompanyStartDate" length="19" />
+        </property>
+        <property name="companyInfoEmailIds" type="string">
+            <column name="CompanyInfoEmailIDs" />
+        </property>
+        <property name="companyWebsiteUrl" type="string">
+            <column name="CompanyWebsiteURL" />
+        </property>
+        <property name="pan" type="string">
+            <column name="PAN" />
+        </property>
+        <property name="tan" type="string">
+            <column name="TAN" />
+        </property>
+        <property name="gstnumber" type="string">
+            <column name="GSTNumber" />
+        </property>
+        <property name="cin" type="string">
+            <column name="CIN" />
+        </property>
+        <property name="isProprietorshipFirm" type="string">
+            <column name="IsProprietorshipFirm" />
+        </property>
+        <property name="nameOfPersonResponsible" type="string">
+            <column name="NameOfPersonResponsible" />
+        </property>
+        <property name="sonOf" type="string">
+            <column name="SonOf" />
+        </property>
+        <property name="designation" type="string">
+            <column name="Designation" />
+        </property>
+        <property name="packageStartDate" type="timestamp">
+            <column name="PackageStartDate" length="19" />
+        </property>
+        <property name="packageTrialDate" type="timestamp">
+            <column name="PackageTrialDate" length="19" />
+        </property>
+        <property name="packageEndDate" type="timestamp">
+            <column name="PackageEndDate" length="19" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="Status" />
+        </property>
+        <property name="packageContractAgreement" type="string">
+            <column name="PackageContractAgreement" />
+        </property>
+        <property name="packageAgreementBrief" type="string">
+            <column name="PackageAgreementBrief" />
+        </property>
+        <property name="packageDiscussionDetails" type="string">
+            <column name="PackageDiscussionDetails" />
+        </property>
+        <property name="securityInformation" type="string">
+            <column name="SecurityInformation" />
+        </property>
+        <property name="others1" type="string">
+            <column name="Others1" />
+        </property>
+        <property name="others2" type="string">
+            <column name="Others2" />
+        </property>
+        <property name="others3" type="string">
+            <column name="Others3" />
+        </property>
+        <property name="others4" type="string">
+            <column name="Others4" />
+        </property>
+        <set name="groupmasters" table="groupmaster" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CompanyID" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Groupmaster" />
+        </set>
+        <set name="branchmasters" table="branchmaster" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CompanyID" not-null="true" />
+            </key>
+            <one-to-many class="com.real.pojo.Branchmaster" />
+        </set>
+    </class>
+</hibernate-mapping>
